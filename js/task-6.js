@@ -9,19 +9,14 @@ const destroyBtn = document.querySelector("[data-destroy]");
 const boxes = document.querySelector("#boxes");
 
 function createBoxes(amount) {
-  const fragment = document.createDocumentFragment();
+  boxes.innerHTML = "";
   for (let i = 0; i < amount; i++) {
-    const box = document.createElement("div");
     const size = 30 + i * 10;
-    box.style.cssText = `
-        width: ${size}px;
-        height: ${size}px;
-        background-color: ${getRandomHexColor()};
-        margin-bottom: 10px;
-      `;
-    fragment.appendChild(box);
+    boxes.insertAdjacentHTML(
+      "beforeend",
+      `<div style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}; margin-bottom: 10px;"></div>`
+    );
   }
-  boxes.appendChild(fragment);
 }
 
 function destroyBoxes() {
