@@ -12,13 +12,20 @@ body {
   color: #212121;
   line-height: 1.5;
 }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 .gallery {
   display: flex;
-  padding: 20px;
+  padding: 0px;
   gap: 20px;
+  flex-wrap: wrap;
+  width: 1080px;
   list-style: none;
+  margin: 0 auto;
 }
 .img-element {
-  max-width: 200px;
-  height: auto;
+  flex-basis: calc((100% - 40px) / 3);
 }
