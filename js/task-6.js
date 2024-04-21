@@ -9,14 +9,14 @@ const destroyBtn = document.querySelector("[data-destroy]");
 const boxes = document.querySelector("#boxes");
 
 function createBoxes(amount) {
-  boxes.innerHTML = "";
+  destroyBoxes();
+  const markup = [];
   for (let i = 0; i < amount; i++) {
     const size = 30 + i * 10;
-    boxes.insertAdjacentHTML(
-      "beforeend",
-      `<div style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}; margin-bottom: 10px;"></div>`
-    );
+    const box = `<div style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}; margin-bottom: 10px;"></div>`;
+    markup.push(box);
   }
+  boxes.insertAdjacentHTML("beforeend", markup.join(""));
 }
 
 function destroyBoxes() {
@@ -33,4 +33,6 @@ createBtn.addEventListener("click", () => {
   }
 });
 
-destroyBtn.addEventListener("click", destroyBoxes);
+destroyBtn.addEventListener("click", () => {
+  destroyBoxes();
+});
